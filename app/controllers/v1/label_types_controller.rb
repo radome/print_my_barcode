@@ -35,7 +35,7 @@ module V1
 
     def label_type_params
       params.require(:data).require(:attributes)
-            .permit(:name, :feed_value, :fine_adjustment,:pitch_length,
+            .permit(:name, :feed_value, :fine_adjustment, :pitch_length,
                     :print_width, :print_length)
     end
 
