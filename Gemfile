@@ -13,6 +13,7 @@ group :development, :test do
   gem 'ruby-prof', '~> 0.15.9'
   gem 'spring'
   gem 'sqlite3'
+  gem 'rubocop', require: false
 end
 
 gem 'active_model_serializers', '~> 0.10'
@@ -35,8 +36,6 @@ gem 'bootsnap', require: false
 
 gem 'exception_notification'
 
-gem 'rubocop', require: false
-
 gem 'rails-perftest'
 
 gem 'rack-cors', require: 'rack/cors'
@@ -50,5 +49,4 @@ end
 
 group :deployment do
   gem 'mysql2'
-  gem 'psd_logger', github: 'sanger/psd_logger'
 end

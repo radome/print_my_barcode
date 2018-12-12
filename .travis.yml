@@ -1,7 +1,19 @@
 language: ruby
-rvm:
-  - 2.4.3
-before_script:
-  - bundle exec rubocop
-script: 
-  - bundle exec rspec
+dist: xenial
+bundle_args: "--without deployment"
+cache:
+  bundler: true
+script:
+- bundle exec rubocop
+- bundle exec rspec
+before_deploy: "./compile-build"
+deploy:
+  provider: releases
+  file: release.tar.gz
+  file_glob: true
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: radome/print_my_barcode
+  api_key:
+    secure: fvHZqYs/wHOMHNYo5k+qj57NLn7VsB3wwBqumaKeynXJVvIhq2wXDjMOuy+mMIetFVSbuyYw2F/HbbqFE563qPLLk7zZKO6AtMmR5iOOykqAiufWlk3INmLAcLQLKjLihy8L+R6n1PETbG+ZXwTURQiwT8lKtqc6+K9gCx7B1DDoYfi2TvMF7iPtBNFqR4ggB34MfWd+4fcnQfY8hFCctOykuZAmixfNqguUBoTGdKFOpiVt/oLA/KzVa1KDiFVXJCHvkuK37jEtNvW43spD9IrWpC51Oxq9QrwxVx2vwlwoUSzqawM/8r1hPDM/iG9D2s9sIQPHKe+04g56K1VotJa4JgC1U73zD6+BSPsLYQFbJ6N6yY1fvzkyUQ0hFum2IbIAVV/3ZLiLiZ95zzNVzW+aqMQf9x8BV5cRVgXVN2lePYWqvT1eGO6NTs4XBG8y5r5YrznXHe80FA+IlVkIHJ2tRxXgRTH6jiOd0qRyPAbaWwyT6hXhJrnVbyI7R4ag9Y2HbODoZgM7Cr+lwes7/LLhkcip6+I/M9ih513ai2RCBc6X+NHlMNI49rHtw13s7B+YkbS3Vz9bM1fTT5DqwW4MOgOIH+wVDI+5EbWpuHpQXo3K14GU4lXbwv5e0Zz1081RZ1WKIqvPUWMe9XydDPzCAzgt3G0+IysqYCLAsAs=
