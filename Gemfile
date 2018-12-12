@@ -10,10 +10,10 @@ group :development, :test do
   gem 'mocha'
   gem 'pry'
   gem 'rspec-rails'
+  gem 'rubocop', require: false
   gem 'ruby-prof', '~> 0.15.9'
   gem 'spring'
   gem 'sqlite3'
-  gem 'rubocop', require: false
 end
 
 gem 'active_model_serializers', '~> 0.10'
