@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     root 'docs#index'
-    
+
     resources :sessions, only: %i[create destroy]
     resources :label_types
     resources :label_templates
